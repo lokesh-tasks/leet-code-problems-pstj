@@ -1,0 +1,19 @@
+import java.util.*;
+import java.util.stream.Collectors;
+public class Solution {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        ArrayList<Integer> salaries = new ArrayList<>();
+        for (int i = 0; i < n; i++) {
+            salaries.add(sc.nextInt());
+        }
+        ArrayList<Integer> updatedSalaries = salaries.stream()
+                .map(salary -> salary + (salary * 10 / 100))
+                .collect(Collectors.toCollection(ArrayList::new));
+        for (int salary : updatedSalaries) {
+            System.out.print(salary + " ");
+        }
+        sc.close();
+    }
+}
